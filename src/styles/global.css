@@ -150,6 +150,7 @@ body::before {
     border: 2px solid #2f3f2f;
     background: linear-gradient(to bottom, #78bc4a, #5f963c);
     box-shadow: inset 0 -3px 0 #456d2c;
+    text-shadow: 3px 3px 0 #1f2a3a;
 }
 
 .nav-list a:hover {
