@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+
+const rules = await getCollection("homeRules");
+rules.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="community-rules container" id="rules">
+    <h2>Community Rules and Guidelines</h2>
+
+    <p>
+        To ensure a positive experience for everyone, please follow our
+        community rules:
+    </p>
+
+    <ol>
+        {
+            rules.map((rule) => (
+                <li>
+                    <strong>{rule.data.strongText}</strong>
+                    {rule.data.detail && <span> {rule.data.detail}</span>}
+                </li>
+            ))
+        }
+    </ol>
+</section>

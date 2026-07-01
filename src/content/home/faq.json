@@ -1,0 +1,20 @@
+[
+    {
+        "id": "need-experience",
+        "order": 1,
+        "question": "Do I need to know Create or Cobblemon already?",
+        "answer": "No. Station48 welcomes beginners and veterans. You can start simple and learn with help from the community."
+    },
+    {
+        "id": "pvp-focus",
+        "order": 2,
+        "question": "Is this server focused on PvP?",
+        "answer": "The focus is collaborative survival, building, and events. Friendly battles are welcome, but griefy gameplay is not."
+    },
+    {
+        "id": "where-updates",
+        "order": 3,
+        "question": "Where can I keep up with changes?",
+        "answer": "Discord is the fastest way to see updates, patch notes, and event info."
+    }
+]

@@ -1,0 +1,57 @@
+---
+interface Props {
+    serverIp: string;
+    modpackUrl: string;
+    discordUrl: string;
+}
+
+const { serverIp, modpackUrl, discordUrl } = Astro.props;
+---
+
+<section class="hero container">
+    <p class="eyebrow">Cobblemon + Create + Community</p>
+    <h1>Modded Minecraft, built around people.</h1>
+
+    <div class="hero-split-container">
+        <div class="hero-split">
+            <p class="hero-copy">
+                Station48 is a friendly community server where engineering,
+                exploration, and cozy building all belong together. Train your
+                Cobblemon team, design production lines with Create, and shape a
+                world that feels alive.
+            </p>
+
+            <div class="hero-actions">
+                <a
+                    class="button button-primary"
+                    href={discordUrl}
+                    target="_blank"
+                    rel="noopener noreferrer">Join Discord</a
+                >
+                <a
+                    class="button button-secondary"
+                    href={modpackUrl}
+                    target="_blank"
+                    rel="noopener noreferrer">Get Modpack</a
+                >
+            </div>
+        </div>
+
+        <div class="hero-split">
+            <div class="server-card" id="join">
+                <p class="server-label">Server Address</p>
+                <div class="server-row">
+                    <code>{serverIp}</code>
+                    <button
+                        type="button"
+                        class="copy-button"
+                        onclick={`navigator.clipboard.writeText('${serverIp}')`}
+                    >
+                        Copy
+                    </button>
+                </div>
+                <p class="server-note">Java Edition • Requires our modpack</p>
+            </div>
+        </div>
+    </div>
+</section>

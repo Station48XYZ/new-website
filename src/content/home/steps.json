@@ -1,0 +1,20 @@
+[
+    {
+        "id": "install-modpack",
+        "order": 1,
+        "strongText": "Install the modpack",
+        "text": " from Modrinth."
+    },
+    {
+        "id": "join-discord",
+        "order": 2,
+        "strongText": "Hop into Discord",
+        "text": " for announcements and support."
+    },
+    {
+        "id": "connect-server",
+        "order": 3,
+        "strongText": "Connect to {serverIp}",
+        "text": " and claim your first home."
+    }
+]

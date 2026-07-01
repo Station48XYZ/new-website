@@ -1,0 +1,18 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+const features: CollectionEntry<"homeFeatures">[] =
+    await getCollection("homeFeatures");
+features.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="features container" id="features">
+    {
+        features.map((feature) => (
+            <article class="feature-card reveal">
+                <h2>{feature.data.title}</h2>
+                <p>{feature.data.description}</p>
+            </article>
+        ))
+    }
+</section>

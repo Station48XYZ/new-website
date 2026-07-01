@@ -1,0 +1,25 @@
+[
+    {
+        "id": "be-kind",
+        "order": 1,
+        "strongText": "Be kind, constructive and respectful.",
+        "detail": "Wholesome vibes only."
+    },
+    {
+        "id": "no-harassment",
+        "order": 2,
+        "strongText": "Harassment will not be tolerated.",
+        "detail": "All people have a right to feel safe here. We enforce our Code of Conduct and repeat offenders will be banned."
+    },
+    {
+        "id": "seriously-kind",
+        "order": 3,
+        "strongText": "Seriously, be kind!",
+        "detail": "Avoid posting things (yes, even that funny meme you just found) that could be read as unkind to a certain person or group. When in doubt, do not post it."
+    },
+    {
+        "id": "no-offensive-content",
+        "order": 4,
+        "strongText": "No NSFW, obscene, or offensive content."
+    }
+]

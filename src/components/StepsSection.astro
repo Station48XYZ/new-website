@@ -1,0 +1,32 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+interface Props {
+    serverIp: string;
+}
+
+const { serverIp } = Astro.props;
+const steps: CollectionEntry<"homeSteps">[] = await getCollection("homeSteps");
+steps.sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="steps container">
+    <h2>Get Started In 3 Steps</h2>
+    <ol>
+        {
+            steps.map((step) => {
+                const strongText = step.data.strongText.replace(
+                    "{serverIp}",
+                    serverIp,
+                );
+
+                return (
+                    <li>
+                        <strong>{strongText}</strong>
+                        {step.data.text}
+                    </li>
+                );
+            })
+        }
+    </ol>
+</section>

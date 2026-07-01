@@ -1,0 +1,20 @@
+[
+    {
+        "id": "cobblemon-adventure",
+        "order": 1,
+        "title": "Cobblemon Adventure",
+        "description": "Explore diverse biomes, hunt rare spawns, and build your dream team with friends. Whether you are casual or competitive, progression feels rewarding."
+    },
+    {
+        "id": "create-engineering",
+        "order": 2,
+        "title": "Create Engineering",
+        "description": "Design moving machines, automated farms, and rail networks that turn your base into a living factory. Creativity is the endgame."
+    },
+    {
+        "id": "community-first",
+        "order": 3,
+        "title": "Community First",
+        "description": "A welcoming vibe, community events, and active moderation keep Station48 friendly for builders, developers, and newcomers alike."
+    }
+]

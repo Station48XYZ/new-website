@@ -1,0 +1,19 @@
+---
+interface Props {
+    discordUrl: string;
+    modpackUrl: string;
+}
+
+const { discordUrl, modpackUrl } = Astro.props;
+---
+
+<footer class="site-footer container">
+    <p>Station48 • A community server for creative, curious players.</p>
+    <p>
+        <a href={discordUrl} target="_blank" rel="noopener noreferrer"
+            >Discord</a
+        > • <a href={modpackUrl} target="_blank" rel="noopener noreferrer"
+            >Modpack</a
+        >
+    </p>
+</footer>

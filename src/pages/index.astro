@@ -1,17 +1,29 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import HeroSection from "../components/HeroSection.astro";
+import FeaturesSection from "../components/FeaturesSection.astro";
+import StepsSection from "../components/StepsSection.astro";
+import CommunityRulesSection from "../components/CommunityRulesSection.astro";
+import FaqSection from "../components/FaqSection.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 
+const serverIp = "play.station48.xyz";
+const modpackUrl = "https://modrinth.com/modpack/station48";
+const discordUrl = "https://discord.gg/Hq5j3WhX9b";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+	title="Station48 | Cobblemon + Create Community Server"
+	description="Station48 is a welcoming Minecraft community server featuring Cobblemon and Create. Build, automate, explore, and play together."
+>
+	<SiteHeader />
+	<main id="top">
+		<HeroSection {serverIp} {modpackUrl} {discordUrl} />
+		<FeaturesSection />
+		<StepsSection {serverIp} />
+		<CommunityRulesSection />
+		<FaqSection />
+	</main>
+	<SiteFooter {discordUrl} {modpackUrl} />
+</BaseLayout>
