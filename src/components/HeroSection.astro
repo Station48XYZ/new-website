@@ -41,7 +41,12 @@ const { serverIp, modpackUrl, discordUrl } = Astro.props;
             <div class="server-card" id="join">
                 <p class="server-label">Server Address</p>
                 <div class="server-row">
-                    <code>{serverIp}</code>
+                    <div class="server-ip">
+                        <code>{serverIp}</code>
+                        <span id="server-status" data-server-ip={serverIp}
+                        ></span>
+                        <span id="server-status-text"></span>
+                    </div>
                     <button
                         type="button"
                         class="copy-button"
@@ -55,3 +60,42 @@ const { serverIp, modpackUrl, discordUrl } = Astro.props;
         </div>
     </div>
 </section>
+
+<script>
+    const serverStatusEl = document.getElementById(
+        "server-status",
+    ) as HTMLSpanElement;
+    const serverStatusTextEl = document.getElementById(
+        "server-status-text",
+    ) as HTMLSpanElement;
+    const serverIp = serverStatusEl.dataset.serverIp;
+
+    async function fetchServerStatus() {
+        try {
+            const response = await fetch(
+                `https://api.mcsrvstat.us/2/${serverIp}`,
+            );
+            const data = await response.json();
+
+            if (data.online) {
+                const players: { online: number; max: number } = data.players;
+
+                serverStatusTextEl.textContent = `Online (${players.online}/${players.max})`;
+
+                serverStatusEl.classList.add("online");
+                serverStatusEl.classList.remove("offline");
+            } else {
+                serverStatusTextEl.textContent = "Offline";
+                serverStatusEl.classList.add("offline");
+                serverStatusEl.classList.remove("online");
+            }
+        } catch (error) {
+            console.error("Error fetching server status:", error);
+            serverStatusTextEl.textContent = "Error";
+            serverStatusEl.classList.add("offline");
+            serverStatusEl.classList.remove("online");
+        }
+    }
+
+    fetchServerStatus();
+</script>
