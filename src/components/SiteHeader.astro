@@ -2,10 +2,15 @@
 import { Image } from "astro:assets";
 import logoIcon from "../assets/logo.png";
 import titleText from "../assets/title-text.png";
+
+const isHome = Astro.url.pathname === "/";
+const homeHref = isHome ? "#top" : "/";
+const sectionHref = (sectionId: string) =>
+    isHome ? `#${sectionId}` : `/#${sectionId}`;
 ---
 
 <header class="site-header container">
-    <a href="#top" class="brand" aria-label="Station48 home">
+    <a href={homeHref} class="brand" aria-label="Station48 home">
         <Image
             src={logoIcon}
             alt="Station48 logo icon"
@@ -15,10 +20,11 @@ import titleText from "../assets/title-text.png";
     </a>
     <nav aria-label="Main navigation">
         <ul class="nav-list">
-            <li><a href="#join">Join</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#rules">Rules</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href={sectionHref("join")}>Join</a></li>
+            <li><a href={sectionHref("features")}>Features</a></li>
+            <li><a href={sectionHref("rules")}>Rules</a></li>
+            <li><a href="/news">News</a></li>
+            <li><a href={sectionHref("faq")}>FAQ</a></li>
         </ul>
     </nav>
 </header>

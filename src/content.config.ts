@@ -1,5 +1,5 @@
 import { defineCollection } from "astro:content";
-import { file } from "astro/loaders";
+import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
 
 const homeFeatures = defineCollection({
@@ -42,9 +42,25 @@ const homeFaq = defineCollection({
     }),
 });
 
+const news = defineCollection({
+    loader: glob({
+        pattern: "src/content/news/*.md",
+    }),
+    schema: z.object({
+        slug: z.string(),
+        title: z.string(),
+        description: z.string(),
+        date: z.date(),
+        category: z.string(),
+        draft: z.boolean().optional(),
+        pinned: z.boolean().optional(),
+    }),
+});
+
 export const collections = {
     homeFeatures,
     homeSteps,
     homeRules,
     homeFaq,
+    news,
 };

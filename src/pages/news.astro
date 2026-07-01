@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import NewsBoardSection from "../components/NewsBoardSection.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+
+const modpackUrl = "https://modrinth.com/modpack/station48";
+const discordUrl = "https://discord.gg/Hq5j3WhX9b";
+---
+
+<BaseLayout
+    title="Station48 News | Events, Updates, and Patch Notes"
+    description="Read the latest Station48 news including events, server updates, Cobblemon progress, and community announcements."
+>
+    <SiteHeader />
+    <main id="top">
+        <NewsBoardSection
+            title="Station48 News Board"
+            intro="Everything new on the server, in one place."
+        />
+    </main>
+    <SiteFooter {discordUrl} {modpackUrl} />
+</BaseLayout>

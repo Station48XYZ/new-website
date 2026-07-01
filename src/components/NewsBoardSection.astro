@@ -1,0 +1,82 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+
+interface Props {
+    title?: string;
+    intro?: string;
+    limit?: number;
+    sectionId?: string;
+    showViewAll?: boolean;
+}
+
+const {
+    title = "News Board",
+    intro = "Latest server updates, events, and community notes.",
+    limit,
+    sectionId = "news",
+    showViewAll = false,
+} = Astro.props;
+
+const posts: CollectionEntry<"news">[] = await getCollection(
+    "news",
+    ({ data }) => (process.env.NODE_ENV === "production" ? !data.draft : true),
+);
+
+const visiblePosts = typeof limit === "number" ? posts.slice(0, limit) : posts;
+---
+
+<section class="news-board container" id={sectionId}>
+    <div class="news-board-header">
+        <h2>{title}</h2>
+        <p>{intro}</p>
+    </div>
+
+    <div class="news-grid">
+        {
+            visiblePosts.length > 0 ? (
+                visiblePosts.map((post) => (
+                    <a
+                        class="news-card-link"
+                        href={`/news/${post.data.slug}`}
+                        aria-label={`Read news post: ${post.data.title}`}
+                    >
+                        <article class="news-card">
+                            <p class="news-meta">
+                                <span class="news-category">
+                                    {post.data.category}
+                                </span>
+                                <span class="news-date">
+                                    {post.data.date.toLocaleDateString(
+                                        "en-US",
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        },
+                                    )}
+                                </span>
+                                {post.data.pinned && (
+                                    <span class="news-pin">Pinned</span>
+                                )}
+                            </p>
+                            <h3>{post.data.title}</h3>
+                            <p>{post.data.description}</p>
+                        </article>
+                    </a>
+                ))
+            ) : (
+                <p>No news posts available.</p>
+            )
+        }
+    </div>
+
+    {
+        showViewAll && (
+            <p class="news-view-all-row">
+                <a class="button button-secondary" href="/news">
+                    Open Full News Board
+                </a>
+            </p>
+        )
+    }
+</section>

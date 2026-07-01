@@ -5,6 +5,7 @@ import HeroSection from "../components/HeroSection.astro";
 import FeaturesSection from "../components/FeaturesSection.astro";
 import StepsSection from "../components/StepsSection.astro";
 import CommunityRulesSection from "../components/CommunityRulesSection.astro";
+import NewsBoardSection from "../components/NewsBoardSection.astro";
 import FaqSection from "../components/FaqSection.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 
@@ -23,6 +24,13 @@ const discordUrl = "https://discord.gg/Hq5j3WhX9b";
 		<FeaturesSection />
 		<StepsSection {serverIp} />
 		<CommunityRulesSection />
+		<NewsBoardSection
+			title="News Board"
+			intro="Catch the latest events, patch notes, and server-wide updates."
+			limit={2}
+			sectionId="news"
+			showViewAll={true}
+		/>
 		<FaqSection />
 	</main>
 	<SiteFooter {discordUrl} {modpackUrl} />

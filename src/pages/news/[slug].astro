@@ -1,0 +1,56 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { getCollection, render } from "astro:content";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+    const posts = await getCollection("news", ({ data }) =>
+        process.env.NODE_ENV === "production" ? !data.draft : true,
+    );
+    return posts.map((post) => ({
+        params: {
+            slug: post.data.slug,
+        },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+
+if (!post || (process.env.NODE_ENV === "production" && post.data.draft)) {
+    return Astro.redirect("/news");
+}
+
+const { Content } = await render(post);
+
+const modpackUrl = "https://modrinth.com/modpack/station48";
+const discordUrl = "https://discord.gg/Hq5j3WhX9b";
+---
+
+<BaseLayout
+    title={`${post.data.title} | Station48 News`}
+    description={post.data.description}
+>
+    <SiteHeader />
+    <main id="top">
+        <article class="news-post container">
+            <p class="news-post-meta">
+                {post.data.category} • {
+                    post.data.date.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })
+                }
+            </p>
+            <h1>{post.data.title}</h1>
+            <div class="news-post-content">
+                <Content />
+            </div>
+        </article>
+    </main>
+    <SiteFooter {discordUrl} {modpackUrl} />
+</BaseLayout>
