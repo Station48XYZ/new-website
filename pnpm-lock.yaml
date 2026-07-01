@@ -11,6 +11,9 @@ importers:
       astro:
         specifier: ^7.0.4
         version: 7.0.4(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)
+      sharp:
+        specifier: ^0.35.2
+        version: 0.35.2
 
 packages:
 
@@ -1625,8 +1628,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@img/colour@1.1.0':
-    optional: true
+  '@img/colour@1.1.0': {}
 
   '@img/sharp-darwin-arm64@0.35.2':
     optionalDependencies:
@@ -2518,7 +2520,6 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.2
       '@img/sharp-win32-ia32': 0.35.2
       '@img/sharp-win32-x64': 0.35.2
-    optional: true
 
   shiki@4.3.0:
     dependencies:
