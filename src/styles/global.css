@@ -61,7 +61,7 @@ body::before {
 }
 
 .bg-orb {
-    position: fixed;
+    position: absolute;
     z-index: -1;
     pointer-events: none;
     image-rendering: pixelated;
