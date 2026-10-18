@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import logoIcon from "../assets/logo.png";
 import titleText from "../assets/title-text.png";
+import { webstoreUrl } from "../consts.ts";
 
 const isHome = Astro.url.pathname === "/";
 const homeHref = isHome ? "#top" : "/";
@@ -25,6 +26,19 @@ const sectionHref = (sectionId: string) =>
             <li><a href={sectionHref("rules")}>Rules</a></li>
             <li><a href="/news">News</a></li>
             <li><a href={sectionHref("faq")}>FAQ</a></li>
+            {
+                webstoreUrl && (
+                    <li>
+                        <a
+                            href={webstoreUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Webstore
+                        </a>
+                    </li>
+                )
+            }
         </ul>
     </nav>
 </header>

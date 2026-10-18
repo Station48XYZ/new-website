@@ -1,10 +1,5 @@
 ---
-interface Props {
-    discordUrl: string;
-    modpackUrl: string;
-}
-
-const { discordUrl, modpackUrl } = Astro.props;
+import { modpackUrl, discordUrl } from "../consts.ts";
 ---
 
 <footer class="site-footer container">

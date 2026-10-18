@@ -1,11 +1,5 @@
 ---
-interface Props {
-    serverIp: string;
-    modpackUrl: string;
-    discordUrl: string;
-}
-
-const { serverIp, modpackUrl, discordUrl } = Astro.props;
+import { serverIp, modpackUrl, discordUrl, webstoreUrl } from "../consts";
 ---
 
 <section class="hero container">
@@ -34,6 +28,18 @@ const { serverIp, modpackUrl, discordUrl } = Astro.props;
                     target="_blank"
                     rel="noopener noreferrer">Get Modpack</a
                 >
+                {
+                    webstoreUrl && (
+                        <a
+                            class="button button-secondary"
+                            href={webstoreUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View Webstore
+                        </a>
+                    )
+                }
             </div>
         </div>
 

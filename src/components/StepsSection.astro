@@ -1,11 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
+import { serverIp } from "../consts.ts";
 
-interface Props {
-    serverIp: string;
-}
-
-const { serverIp } = Astro.props;
 const steps: CollectionEntry<"homeSteps">[] = await getCollection("homeSteps");
 steps.sort((a, b) => a.data.order - b.data.order);
 ---
