@@ -1,0 +1,50 @@
+{
+    "component": {
+        "type": 17,
+        "accent_color": 15844367,
+        "components": [
+            {
+                "type": 9,
+                "components": [
+                    {
+                        "type": 10,
+                        "content": "# Station48 Cobblemon and Create"
+                    }
+                ],
+                "accessory": {
+                    "type": 11,
+                    "media": {
+                        "url": "https://station48.xyz/favicon.png"
+                    }
+                }
+            },
+            {
+                "type": 1,
+                "components": [
+                    {
+                        "type": 2,
+                        "style": 5,
+                        "label": "Main Website",
+                        "url": "https://station48.xyz",
+                        "emoji": {
+                            "id": "1390263677952856096",
+                            "name": "s48",
+                            "animated": false
+                        }
+                    },
+                    {
+                        "type": 2,
+                        "style": 5,
+                        "label": "Get our Modpack",
+                        "url": "https://station48.xyz/modpack",
+                        "emoji": {
+                            "id": "1040805511538421890",
+                            "name": "modrinth",
+                            "animated": false
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

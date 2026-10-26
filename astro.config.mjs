@@ -3,6 +3,7 @@ import { defineConfig, passthroughImageService } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://station48.xyz',
     image: {
         service: passthroughImageService()
     }
